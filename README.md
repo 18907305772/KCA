@@ -13,7 +13,7 @@ Mitigating Hallucination in Large Language Models via<br><u>K</u>nowledge <u>C</
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 <h4> |<a href="https://arxiv.org/abs/xxxx.xxxxx"> 📑 Paper </a> |
-<a href="https://huggingface.co/datasets?sort=trending&search=KCA"> 🤗 Data </a> |  
+<a href="https://huggingface.co/datasets/Wanfq/KCA_data"> 🤗 Data </a> |  
 <a href="https://huggingface.co/models?sort=trending&search=KCA"> 🤗 Model </a> |
 <a href="https://github.com/fanqiwan/KCA"> 🐱 Github Repo </a> |
 </h4>
@@ -33,7 +33,7 @@ _<sup>†</sup> Sun Yat-sen University,
 
 
 ## News
-- **Jan 19, 2024:** 🔥 We're excited to announce that the KCA datasets for open-book tuning, discarding tuning, and refusal tuning are now available on 🤗 [Huggingface Datasets](https://huggingface.co/datasets?sort=trending&search=KCA). The fine-tuned models are now available on 🤗 [Huggingface Models](https://huggingface.co/models?sort=trending&search=KCA). Happy exploring!
+- **Jan 19, 2024:** 🔥 We're excited to announce that the KCA datasets for open-book tuning, discarding tuning, and refusal tuning are now available on 🤗 [Huggingface Datasets](https://huggingface.co/datasets/Wanfq/KCA_data). The fine-tuned models are now available on 🤗 [Huggingface Models](https://huggingface.co/models?sort=trending&search=KCA). Happy exploring!
 
 ## Contents
 
@@ -63,7 +63,7 @@ The proposed KCA approach initially detects the knowledge inconsistency through 
 
 ## Data Release
 
-We release the KCA datasets for open-book tuning, discarding tuning, and refusal tuning on 🤗 [Huggingface Datasets](https://huggingface.co/datasets?sort=trending&search=KCA). Please note that each dataset is corresponding to a specific tuning method and a base LLM. The dataset is a structured data file in the JSON format. It consists of a list of dictionaries, with each dictionary containing multiple fields. Below is an example:
+We release the KCA datasets for open-book tuning, discarding tuning, and refusal tuning on [./data/processed_results](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/processed_results). Please note that each dataset is corresponding to a specific tuning method and a base LLM. The dataset is a structured data file in the JSON format. It consists of a list of dictionaries, with each dictionary containing multiple fields. Below is an example:
 
 ```
 {
@@ -122,7 +122,7 @@ The evaluation results of helpful score on four public benchmarks for general in
 
 To detect the inconsistency between the external knowledge encapsulated within the instruction-tuning data and the intrinsic knowledge LLMs memorized from the pretraining corpus, we propose a three-stage framework: (i) knowledge requirements classification, (ii) reference knowledge generation, and (iii) examination formulation. 
 
-The results of knowledge inconsistency detection are in [./data/generated_results](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/generated_results) and [./data/examination](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/examination). You could download the results and put them in the right folder. If you want to reproduce the results, please follow the following commands step by step:
+The results of knowledge inconsistency detection are in [./data/generated_results](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/generation_results) and [./data/examination](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/examination). You could download the results and put them in the right folder. If you want to reproduce the results, please follow the following commands step by step:
 
 ### Knowledge Requirements Classification
 ```
