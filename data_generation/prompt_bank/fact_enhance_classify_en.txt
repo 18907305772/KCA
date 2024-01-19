@@ -1,0 +1,102 @@
+Help me complete a task: Factual Information Requirement Judgment. This task targets questions that require objective, accurate, verifiable information to answer, such as historical events, scientific knowledge, statistical data, etc. For each user command, you need to first understand the intent and demand of the command, then judge whether factual information is needed to answer it.
+
+Specific scenarios that require factual information retrieval include:
+1. Historical inquiry: Inquiries involving past events, characters, dates, or historical periods. Usually requires obtaining detailed information about the time, place, cause, and impact of historical events.
+2. Scientific knowledge: Inquiries involving the basic principles, concepts, data, and research results of natural sciences (such as physics, chemistry, biology) or social sciences (such as psychology, economics).
+3. Statistical data: Inquiries involving the collection and analysis of numerical data, typically used to describe and explain a phenomenon or trend, such as population statistics, economic indicators, or social surveys.
+4. Technical details: Inquiries involving the specific specifications and functions of products, services, or technologies, such as the performance parameters of electronic devices, software version information, or application details of engineering technologies.
+5. Geographic information: Inquiries involving geographical locations, terrains, landmarks, countries, or regions, including but not limited to maps, coordinates, climate, and population distribution.
+6. News events: Inquiries involving the latest or recently occurred events, including political, economic, social, cultural news reports, and background analysis.
+7. Laws and regulations: Inquiries involving laws, regulations, ordinances, precedents, or related judicial interpretations, usually requires understanding the content, scope of application, and legal effects of legal provisions.
+8. Health and medicine: Inquiries involving human health, diseases, medicines, treatment methods, or medical research, usually including symptom descriptions, diagnostic methods, and treatment suggestions.
+9. Economic data: Inquiries involving economic activities, market data, currency exchange rates, stock prices, or financial reports, usually used for analyzing and predicting economic trends and market behavior.
+10. Education information: Inquiries involving educational institutions, courses, academic degrees, admission requirements, or educational policies, usually requires understanding the distribution of educational resources and education standards.
+11. Personal information: Related to specific individuals, their life, major achievements, important events, etc., including the relationships between two or more individuals, specific statements, or views of a person.
+
+Use the following symbols to represent judgment results:
+<need>: factual information needed
+<no need>: factual information not needed
+If the judgment is that factual information is needed, you need to give a corresponding search query in the result.
+
+###
+<start_of_demonstration>
+#Command:
+Who was the first president of the United States?
+#Analysis:
+This information is objective and verifiable, so factual information is needed to answer.
+#Prediction:
+<need>
+
+#Command:
+Write a poem in the style of the Tang Dynasty on the theme of water.
+#Analysis:
+This command asks to create a poem, requires an understanding of the style of Tang Dynasty poetry, but it's primarily a creative task and doesn't require factual information retrieval.
+#Prediction:
+<no need>
+
+#Command:
+Let's play a game of idioms, I'll start: "as one wishes."
+#Analysis:
+This command asks to participate in an idiom game, which requires language generation and understanding capabilities, and knowledge of idioms, but does not require the retrieval of specific factual information.
+#Prediction:
+<no need>
+
+#Command:
+The origin of the idiom "the foolish old man who moved the mountains," make a sentence with this idiom.
+#Analysis:
+This command contains two parts. The first part asks about the origin of the idiom "the foolish old man who moved the mountains," which requires factual information to answer and needs to query historical or literary references.
+#Prediction:
+<need>
+#Search Qeury:
+"The origin of the idiom 'the foolish old man who moved the mountains'"
+
+#Command:
+Tell me about Huang Guoping.
+#Analysis:
+Huang Guoping could be a person's name, or it could be the name of a place or organization. According to the expression of the command, factual information is needed to supplement the relevant background knowledge.
+#Prediction:
+<need>
+#Search Qeury:
+"Huang Guoping"
+
+#Command:
+I like to drink strong tea to refresh myself at work, I drink 3-4 cups every day. But some people say coffee is healthier, which do you think is more beneficial to the body, coffee or strong tea?
+#Analysis:
+This question is about the comparison of the health effects of coffee and strong tea, this requires factual information retrieval, needs to answer through searching for scientific research on the health effects of coffee and strong tea.
+#Prediction:
+<need>
+#Search Qeury:
+"Health effects of coffee", "Health effects of strong tea"
+
+#Command:
+What's the coldest year on record so far?
+#Analysis:
+This command is asking to query climate history information, which requires factual information retrieval.
+#Prediction:
+<need>
+#Search Qeury:
+"Coldest year on record"
+
+#Command:
+Please compare the OnePlus Ace2 with the Realme GT Neo5, which one is more worth buying?
+#Analysis:
+This command asks to compare these two phones and give purchase advice. This requires analysis and comparison based on the specifications, features, price, etc. of these two phones, which are factual information.
+#Prediction:
+<need>
+#Search Qeury:
+"OnePlus Ace2 review", "Realme GT Neo5 review"
+
+#Command:
+Automatically add a message to a commit.
+#Analysis:
+This is a technical question about how to automatically add a message to a commit in a version control system like Git. Although this requires a certain understanding of the use of Git, it's primarily an operation guide and doesn't require factual information retrieval.
+#Prediction:
+<no need>
+
+</start_of_demonstration>
+###
+
+Now, based on the given commands, perform an analysis and judgment on whether factual information is needed:
+#Command:
+{instruction_to_process}
+#Analysis:

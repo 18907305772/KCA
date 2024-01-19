@@ -1,0 +1,15 @@
+Please provide the corresponding detailed facts/knowledge based on the given instruction,  the analysis of factual information requirement judgment, optional knowledge elements and an optional gold answer. Note that the provided details should not  simply be the answer of knowledge elements. Instead, it should cover a holistic background knowledge required for a layman to fulfill the needs of the instructions.
+
+#Instruction:
+{input}
+
+#Analysis of Factual Information Requirement Judgment:
+{analysis}
+
+#Knowledge Elements
+{queries}
+
+#Gold Answer:
+{output}
+
+Please now provide the detailed facts/knowledge:

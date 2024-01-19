@@ -1,0 +1,27 @@
+Try to come up with three multi-choice questions that ground on the knowledge provided below. The questions should be in the format as this illustrative example, and mandatory fields include #Question, #Options, #Analysis, #Answer:
+
+Below is a illustrative example of the format to follow.
+<start_of_demonstration>
+#Question:
+One of the reasons that the government discourages and regulates monopolies is that
+
+#Options:
+(A) producer surplus is lost and consumer surplus is gained.
+(B) monopoly prices ensure productive efficiency but cost society allocative efficiency.
+(C) monopoly firms do not engage in significant research and development.
+(D) consumer surplus is lost with higher prices and lower levels of output.
+
+#Analysis:
+The government discourages and regulates monopolies primarily because they result in a loss of consumer surplus through higher prices and lower levels of output. Monopolies can charge higher prices due to their market dominance, reducing consumer welfare and surplus. Additionally, they often restrict output to maintain higher prices, further diminishing consumer access to goods and services. This is why the government intervenes to promote competition and protect consumer interests. In summary, the government discourages and regulates monopolies because consumer surplus is lost with higher prices and lower levels of output, as indicated in option (D).
+
+#Answer:
+(D)
+</start_of_demonstration>
+
+Below is the grounding knowledge of the questions that you are required to provide.
+
+<start_of_knowledge>
+{knowledge}
+</start_of_knowledge>
+
+Please now provide the three multi-choice questions grounding on the above knowledge in the required format:
