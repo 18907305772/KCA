@@ -49,7 +49,7 @@ _<sup>†</sup> Sun Yat-sen University,
 
 ## Overview
  
-We introduce a novel approach, called knowledge consistent alignment (KCA) to reduce the inconsistency between the external knowledge encapsulated in the training data and the intrinsic knowledge inherited in the pretraining corpus, therefore mitigate hallucination in alignment of LLMs.
+We introduce knowledge consistent alignment (KCA) to reduce the inconsistency between the external knowledge within the alignment data and the intrinsic knowledge LLMs memorized from the pretraining corpus, therefore mitigating hallucinations in the alignment of LLMs.
 
 <p align="center">
     <img src="./assets/fig_1_2.png" width="95%"> <br>
