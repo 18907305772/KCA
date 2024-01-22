@@ -12,7 +12,7 @@ Mitigating Hallucination in Large Language Models via<br><u>K</u>nowledge <u>C</
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-<h4> |<a href="https://arxiv.org/abs/xxxx.xxxxx"> 📑 Paper </a> |
+<h4> |<a href="https://arxiv.org/abs/2401.10768"> 📑 Paper </a> |
 <a href="https://huggingface.co/datasets/Wanfq/KCA_data"> 🤗 Data </a> |  
 <a href="https://huggingface.co/models?sort=trending&search=KCA"> 🤗 Model </a> |
 <a href="https://github.com/fanqiwan/KCA"> 🐱 Github Repo </a> |
@@ -408,12 +408,12 @@ KCA is intended and licensed for research use only. The dataset is CC BY NC 4.0 
 If you find this work is relevant with your research or applications, please feel free to cite our work!
 ```
 @misc{wan2024mitigating,
-   title={Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment},
-   author={Fanqi, Wan and Xinting, Huang and Leyang, Cui and Xiaojun, Quan and Wei, Bi and Shuming, Shi},
-   year={2024},
-   eprint={xxxx.xxxxx},
-   archivePrefix={arXiv},
-   primaryClass={cs.CL}
+      title={Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment}, 
+      author={Fanqi Wan and Xinting Huang and Leyang Cui and Xiaojun Quan and Wei Bi and Shuming Shi},
+      year={2024},
+      eprint={2401.10768},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
 }
 ```
 
