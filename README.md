@@ -407,8 +407,8 @@ KCA is intended and licensed for research use only. The dataset is CC BY NC 4.0 
 
 If you find this work is relevant to your research or applications, please feel free to cite our work!
 ```
-@misc{wan2024mitigating,
-      title={Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment}, 
+@misc{wan2024knowledge,
+      title={Knowledge Verification to Nip Hallucination in the Bud}, 
       author={Fanqi Wan and Xinting Huang and Leyang Cui and Xiaojun Quan and Wei Bi and Shuming Shi},
       year={2024},
       eprint={2401.10768},
