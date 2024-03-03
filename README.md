@@ -6,11 +6,10 @@
 Knowledge Verification to Nip Hallucination in the Bud
 -----------------------------
 
-[![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
-[![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/DATA_LICENSE)
-[![Weight License](https://img.shields.io/badge/Weight%20License-CC%20By%20NC%204.0-yellow)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/WEIGHT_DIFF_LICENSE)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/release/python-3110/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+<img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version"> 
+<img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
+<img src="https://img.shields.io/github/stars/fanqiwan/KCA?color=yellow" alt="Stars">
+<img src="https://img.shields.io/github/issues/fanqiwan/KCA?color=red" alt="Issues">
 
 <h4> |<a href="https://arxiv.org/abs/2401.10768"> 📑 Paper </a> |
 <a href="https://huggingface.co/datasets/Wanfq/KCA_data"> 🤗 Data </a> |  
