@@ -42,9 +42,7 @@ _<sup>†</sup> Sun Yat-sen University,
 - [Knowledge Inconsistency Detection](#knowledge-inconsistency-detection)
 - [Knowledge Inconsistency Calibration](#knowledge-inconsistency-calibration)
 - [Evaluation](#evaluation)
-- [License](#license)
 - [Citation](#citation)
-- [Acknowledgements](#acknowledgments)
 
 ## Overview
  
@@ -398,24 +396,14 @@ python3 ./eval/gpt_judge/gpt_judge.py \
 python3 ./eval/gpt_judge/show_results.py
 ```
 
-## License
-
-KCA is intended and licensed for research use only. The dataset is CC BY NC 4.0 (allowing only non-commercial use) and models trained using the dataset should not be used outside of research purposes. The weights of KCA models are also CC BY NC 4.0 (allowing only non-commercial use).
-
 ## Citation
 
 If you find this work is relevant to your research or applications, please feel free to cite our work!
 ```
-@misc{wan2024knowledge,
-      title={Knowledge Verification to Nip Hallucination in the Bud}, 
-      author={Fanqi Wan and Xinting Huang and Leyang Cui and Xiaojun Quan and Wei Bi and Shuming Shi},
-      year={2024},
-      eprint={2401.10768},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@article{wan2024knowledge,
+  title={Knowledge Verification to Nip Hallucination in the Bud},
+  author={Wan, Fanqi and Huang, Xinting and Cui, Leyang and Quan, Xiaojun and Bi, Wei and Shi, Shuming},
+  journal={arXiv preprint arXiv:2401.10768},
+  year={2024}
 }
 ```
-
-## Acknowledgments
-
-This repo benefits from [Stanford-Alpaca](https://github.com/tatsu-lab/stanford_alpaca) and [Explore-Instruct](https://github.com/fanqiwan/Explore-Instruct). Thanks for their wonderful work!
