@@ -3,14 +3,13 @@
 
 <div id="top" align="center">
 
-Mitigating Hallucination in Large Language Models via<br><u>K</u>nowledge <u>C</u>onsistent <u>A</u>lignment
+Knowledge Verification to Nip Hallucination in the Bud
 -----------------------------
 
-[![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
-[![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/DATA_LICENSE)
-[![Weight License](https://img.shields.io/badge/Weight%20License-CC%20By%20NC%204.0-yellow)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/WEIGHT_DIFF_LICENSE)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/release/python-3110/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+<img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version"> 
+<img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
+<img src="https://img.shields.io/github/stars/fanqiwan/KCA?color=yellow" alt="Stars">
+<img src="https://img.shields.io/github/issues/fanqiwan/KCA?color=red" alt="Issues">
 
 <h4> |<a href="https://arxiv.org/abs/2401.10768"> 📑 Paper </a> |
 <a href="https://huggingface.co/datasets/Wanfq/KCA_data"> 🤗 Data </a> |  
@@ -33,7 +32,7 @@ _<sup>†</sup> Sun Yat-sen University,
 
 
 ## News
-- **Jan 19, 2024:** 🔥 We're excited to announce that the KCA datasets for open-book tuning, discarding tuning, and refusal tuning are now available on 🤗 [Huggingface Datasets](https://huggingface.co/datasets/Wanfq/KCA_data). The fine-tuned models are now available on 🤗 [Huggingface Models](https://huggingface.co/models?sort=trending&search=KCA). Happy exploring!
+- **Jan 19, 2024:** 🔥 We're excited to announce that the KCA datasets for open-book tuning, discard tuning, and refusal tuning are now available on 🤗 [Huggingface Datasets](https://huggingface.co/datasets/Wanfq/KCA_data). The fine-tuned models are now available on 🤗 [Huggingface Models](https://huggingface.co/models?sort=trending&search=KCA). Happy exploring!
 
 ## Contents
 
@@ -41,7 +40,7 @@ _<sup>†</sup> Sun Yat-sen University,
 - [Data Release](#data-release)
 - [Model Release](#model-release)
 - [Knowledge Inconsistency Detection](#knowledge-inconsistency-detection)
-- [Knowledge Inconsistency Processing](#knowledge-inconsistency-processing)
+- [Knowledge Inconsistency Calibration](#knowledge-inconsistency-calibration)
 - [Evaluation](#evaluation)
 - [License](#license)
 - [Citation](#citation)
@@ -49,13 +48,13 @@ _<sup>†</sup> Sun Yat-sen University,
 
 ## Overview
  
-We introduce a novel approach, called knowledge consistent alignment (KCA) to reduce the inconsistency between the external knowledge encapsulated in the training data and the intrinsic knowledge inherited in the pretraining corpus, therefore mitigate hallucination in alignment of LLMs.
+In this study, we demonstrate the feasibility of mitigating hallucinations by verifying and minimizing the inconsistency between external knowledge present in the alignment data and the intrinsic knowledge embedded within foundation LLMs.
 
 <p align="center">
     <img src="./assets/fig_1_2.png" width="95%"> <br>
 </p>
 
-The proposed KCA approach initially detects the knowledge inconsistency through formulated examinations. Specifically, KCA employs a well-aligned model to design multi-choice questions for the training data, thereby comprehensively assessing LLMs' understanding of implicit knowledge. Following the detection, KCA adopts several straightforward yet efficient strategies for knowledge inconsistency processing, which involve (i) open-book tuning, (ii) discarding tuning, and (iii) refusal tuning.
+Specifically, we propose a novel approach called Knowledge Consistent Alignment (KCA), which employs a well-aligned LLM to automatically formulate assessments based on external knowledge to evaluate the knowledge boundaries of foundation LLMs. To address knowledge inconsistencies in the alignment data, KCA implements several specific strategies to deal with these data instances, which involve (i) open-book tuning, (ii) discard tuning, and (iii) refusal tuning.
 
 <p align="center">
     <img src="./assets/fig_3.png" width="95%"> <br>
@@ -63,7 +62,7 @@ The proposed KCA approach initially detects the knowledge inconsistency through 
 
 ## Data Release
 
-We release the KCA datasets for open-book tuning, discarding tuning, and refusal tuning on [./data/processed_results](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/processed_results). Please note that each dataset is corresponding to a specific tuning method and a base LLM. The dataset is a structured data file in the JSON format. It consists of a list of dictionaries, with each dictionary containing multiple fields. Below is an example:
+We release the KCA datasets for open-book tuning, discard tuning, and refusal tuning on [./data/processed_results](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/processed_results). Please note that each dataset is corresponding to a specific tuning method and a foundation LLM. The dataset is a structured data file in the JSON format. It consists of a list of dictionaries, with each dictionary containing multiple fields. Below is an example:
 
 ```
 {
@@ -78,13 +77,13 @@ We release the KCA datasets for open-book tuning, discarding tuning, and refusal
       "value": "..."  # LLM response.
     }
   ],
-  "class": "...",  # Three categories: "no_need_fact" (the instruction does not require knowledge), "need_and_have_fact" (the instruction requires knowledge and the base LLM understands the generated knowledge), "need_and_have_no_fact" (the instruction requires knowledge but the base LLM does not understand the generated knowledge).
+  "class": "...",  # Three categories: "no_need_fact" (the instruction does not require knowledge), "need_and_have_fact" (the instruction requires knowledge and the foundation LLM understands the generated knowledge), "need_and_have_no_fact" (the instruction requires knowledge but the foundation LLM does not understand the generated knowledge).
   "analysis": "...",  # Analysis for whether the instruction requires knowledge.
-  "knowledge": "..."  # Generated knowlege.
+  "knowledge": "..."  # Generated knowledge.
 }
 ```
 
-We show the percentage (%) of the consistent subset (the instruction requires knowledge and the base LLM understands the generated knowledge) and the inconsistent subset (the instruction requires knowledge but the base LLM does not understand the generated knowledge) across various base LLMs on different training and evaluation datasets as follows: 
+We show the percentage (%) of the consistent subset (the instruction requires knowledge and the foundation LLM understands the generated knowledge) and the inconsistent subset (the instruction requires knowledge but the foundation LLM does not understand the generated knowledge) across various foundation LLMs on different training and evaluation datasets as follows: 
 
 <p align="center">
     <img src="./assets/fig_4.png" width="95%"> <br>
@@ -92,7 +91,7 @@ We show the percentage (%) of the consistent subset (the instruction requires kn
 
 ## Model Release
 
-We release the KCA models fine-tuned with different tuning methods on 🤗 [Huggingface Models](https://huggingface.co/models?sort=trending&search=KCA). Please note that each model is corresponding to a specific tuning method and a base LLM.
+We release the KCA models fine-tuned with different tuning methods on 🤗 [Huggingface Models](https://huggingface.co/models?sort=trending&search=KCA). Please note that each model is corresponding to a specific tuning method and a foundation LLM.
 
 ### Hallucination Mitigation
 
@@ -104,7 +103,7 @@ The evaluation results of hallucination rate (%) on four public benchmarks for g
     <img src="./assets/tab_1.png" width="95%"> <br>
 </p>
 
-The evaluation results of ROUGE-1, ROUGE-2, and ROUGE-L score on two public benchmarks for search and retrieve and clinical report generation are shown as follows, with a higher score indicating better performance:
+The evaluation results of ROUGE-1, ROUGE-2, and ROUGE-L on two public benchmarks for search and retrieve and clinical report generation are shown as follows, with a higher score indicating better performance:
 
 <p align="center">
     <img src="./assets/tab_2.png" width="95%"> <br>
@@ -112,7 +111,7 @@ The evaluation results of ROUGE-1, ROUGE-2, and ROUGE-L score on two public benc
 
 ### Helpfulness Maintenance
 
-The evaluation results of helpful score on four public benchmarks for general instruction-following and truthful question answering with GPT-4 judgment are shown as follows, where the helpful score ranges from one (worst) to ten (best):
+The evaluation results of the helpful score on four public benchmarks for general instruction-following and truthful question answering with GPT-4 judgment are shown as follows, where the helpful score ranges from one (worst) to ten (best):
 
 <p align="center">
     <img src="./assets/tab_3.png" width="95%"> <br>
@@ -120,7 +119,7 @@ The evaluation results of helpful score on four public benchmarks for general in
 
 ## Knowledge Inconsistency Detection
 
-To detect the inconsistency between the external knowledge encapsulated within the instruction-tuning data and the intrinsic knowledge LLMs memorized from the pretraining corpus, we propose a three-stage framework: (i) knowledge requirements classification, (ii) reference knowledge generation, and (iii) examination formulation. 
+To detect the inconsistency between external knowledge within the instruction-tuning (alignment) data and intrinsic knowledge embedded in the foundation LLMs obtained from pretraining, we propose a four-stage approach: (i) knowledge requirement classification, (ii) reference knowledge generation, (iii) examination formulation, and (iv) examination completion.
 
 The results of knowledge inconsistency detection are in [./data/generated_results](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/generation_results) and [./data/examination](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/examination). You could download the results and put them in the right folder. If you want to reproduce the results, please follow the following commands step by step:
 
@@ -205,7 +204,7 @@ python3 post_process.py \
     --stage test_generation
 ```
 
-### Testing Base LLMs
+### Examination Completion
 
 ```
 cd ./
@@ -232,11 +231,11 @@ python3 ./examination/${test_dataset}/run_eval.py \
 python3 ./examination/${test_dataset}/get_metric.py
 ```
 
-## Knowledge Inconsistency Processing
+## Knowledge Inconsistency Calibration
 
-Following knowledge inconsistency detection, the standard instruction-tuning approach does nothing for the inconsistent subset, predisposing the aligned LLMs to produce persuasive yet hallucinatory responses. To mitigate the hallucinations introduced by knowledge inconsistency, we propose a variety of simple yet effective techniques for processing the inconsistent, encompassing (i) open-book tuning, (ii) discarding tuning, and (iii) refusal tuning.
+Since knowledge inconsistency could mislead foundation LLMs during alignment and lead to hallucinations, we propose three specific strategies to manage instances in Dinc, including (i) open-book tuning, which appends the generated knowledge snippets to the instructions, (ii) discard tuning, which discards both the instructions and responses, and (iii) refusal tuning, which changes the responses to a refusal format.
 
-The results of knowledge inconsistency processing are in [./data/processed_results](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/processed_results). You could download the results and put them in the right folder. If you want to reproduce the results, please follow the following commands step by step:
+The results of knowledge inconsistency calibration are in [./data/processed_results](https://huggingface.co/datasets/Wanfq/KCA_data/tree/main/data/processed_results). You could download the results and put them in the right folder. If you want to reproduce the results, please follow the following commands step by step:
 
 ### Data Construction
 
@@ -249,7 +248,7 @@ python3 ./data_generation/inconsistency_processing.py
 
 ### Fine-Tuning
 
-Then, we fine-tune the base LLMs using these tuning methods:
+Then, we fine-tune the foundation LLMs using these tuning methods:
  
 ```
 cd ./
@@ -405,10 +404,10 @@ KCA is intended and licensed for research use only. The dataset is CC BY NC 4.0 
 
 ## Citation
 
-If you find this work is relevant with your research or applications, please feel free to cite our work!
+If you find this work is relevant to your research or applications, please feel free to cite our work!
 ```
-@misc{wan2024mitigating,
-      title={Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment}, 
+@misc{wan2024knowledge,
+      title={Knowledge Verification to Nip Hallucination in the Bud}, 
       author={Fanqi Wan and Xinting Huang and Leyang Cui and Xiaojun Quan and Wei Bi and Shuming Shi},
       year={2024},
       eprint={2401.10768},
@@ -419,4 +418,4 @@ If you find this work is relevant with your research or applications, please fee
 
 ## Acknowledgments
 
-This repo benefits from [Stanford-Alpaca](https://github.com/tatsu-lab/stanford_alpaca) and [Explore-Instruct](https://github.com/fanqiwan/Explore-Instruct). Thanks for their wonderful works!
+This repo benefits from [Stanford-Alpaca](https://github.com/tatsu-lab/stanford_alpaca) and [Explore-Instruct](https://github.com/fanqiwan/Explore-Instruct). Thanks for their wonderful work!
