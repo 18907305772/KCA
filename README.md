@@ -12,9 +12,8 @@ Knowledge Verification to Nip Hallucination in the Bud
 <img src="https://img.shields.io/github/issues/fanqiwan/KCA?color=red" alt="Issues">
 
 <h4> |<a href="https://arxiv.org/abs/2401.10768"> 📑 Paper </a> |
-<a href="https://huggingface.co/datasets/Wanfq/KCA_data"> 🤗 Data </a> |  
-<a href="https://huggingface.co/models?sort=trending&search=KCA"> 🤗 Model </a> |
-<a href="https://github.com/fanqiwan/KCA"> 🐱 Github Repo </a> |
+<a href="https://huggingface.co/collections/Wanfq/kca-65aa9ab25c84d7d5e7c9d0da"> 🤗 HuggingFace Repo </a> |
+<a href="https://github.com/fanqiwan/KCA"> 🐱 GitHub Repo </a> |
 </h4>
 
 <!-- **Authors:** -->
